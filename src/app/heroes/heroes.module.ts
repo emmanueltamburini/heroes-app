@@ -5,6 +5,7 @@ import { SearchComponent } from './pages/search/search.component';
 import { HeroByIdComponent } from './pages/hero-by-id/hero-by-id.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AllHeroesComponent } from './pages/all-heroes/all-heroes.component';
+import { HeroesRoutingModule } from './heroes-routing.module';
 
 
 
@@ -17,7 +18,8 @@ import { AllHeroesComponent } from './pages/all-heroes/all-heroes.component';
     AllHeroesComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    HeroesRoutingModule
   ]
 })
 export class HeroesModule { }
