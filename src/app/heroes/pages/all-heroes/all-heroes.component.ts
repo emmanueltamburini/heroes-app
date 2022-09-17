@@ -4,12 +4,7 @@ import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'app-all-heroes',
-  templateUrl: './all-heroes.component.html',
-  styles: [`
-    mat-card {
-      margin-top: 20px;
-    }
-  `]
+  templateUrl: './all-heroes.component.html'
 })
 export class AllHeroesComponent implements OnInit {
 
