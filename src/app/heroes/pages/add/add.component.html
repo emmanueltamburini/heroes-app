@@ -1,1 +1,58 @@
-<p>add works!</p>
+<h1>New hero <small>asd</small></h1>
+
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+  <div fxFlex="50" fxLayout="column">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="0px">
+      <mat-form-field>
+        <mat-label>
+          Super hero
+        </mat-label>
+        <input matInput type="text" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>
+          Alter ego
+        </mat-label>
+        <input matInput type="text" required>
+      </mat-form-field>
+    </div>
+    <mat-form-field>
+      <mat-label>
+        First appearance
+      </mat-label>
+      <input matInput type="text" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        Characters
+      </mat-label>
+      <input matInput type="text" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        Characters
+      </mat-label>
+      <mat-select>
+        <mat-option *ngFor="let publisher of publishers" [value]="publisher.id">
+          {{publisher.description}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        Photo url
+      </mat-label>
+      <input matInput type="url" required>
+    </mat-form-field>
+
+    <br>
+
+    <button mat-raised-button color="primary">
+      <mat-icon>edit</mat-icon>
+      Save
+    </button>
+  </div>
+  <div fxFlex="50">
+    <img [src]="hero | image" alt="hero image">
+  </div>
+</div>
