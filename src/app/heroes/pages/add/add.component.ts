@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
+import { ConfirmComponent } from '../../components/confirm/confirm.component';
 import { Hero, Publisher } from '../../interfaces/hero.interface';
 import { HeroesService } from '../../services/heroes.service';
 
@@ -40,6 +42,7 @@ export class AddComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private snackBar: MatSnackBar,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -73,7 +76,16 @@ export class AddComponent implements OnInit {
   }
 
   public onDelete(): void {
-    this.heroesServices.deleteHero(this.hero.id!).subscribe(() => this._finish('Hero deleted'));
+    const dialog: MatDialogRef<ConfirmComponent, boolean | undefined> = this.dialog.open(ConfirmComponent, {
+      width: '350px',
+      data: {...this.hero}
+    });
+
+    dialog.afterClosed().subscribe(result => {
+      if(result) {
+        this.heroesServices.deleteHero(this.hero.id!).subscribe(() => this._finish('Hero deleted'));
+      }
+    })
   }
 
   public onImageChange(): void {

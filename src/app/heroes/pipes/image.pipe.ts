@@ -17,7 +17,6 @@ export class ImagePipe implements PipeTransform {
   }
 
   transform(hero: Hero): string {
-    console.log('disparo');
     if (!hero.id) {
       return `assets/no-image.png`;
     }
