@@ -21,10 +21,16 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  public login (): Observable<Auth> {
+  public login(): Observable<Auth> {
     return this.http.get<Auth>(`${this._baseUrl}/users/1`)
       .pipe(
-        tap(response => this._auth = response)
+        tap(response => this._auth = response),
+        tap(response => localStorage.setItem('id', response.id))
       );
+  }
+
+  public logout(): void {
+    this._auth = undefined;
+    localStorage.removeItem('id');
   }
 }

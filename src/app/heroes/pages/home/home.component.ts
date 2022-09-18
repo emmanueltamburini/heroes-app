@@ -21,6 +21,7 @@ export class HomeComponent {
   constructor(private router: Router, private authService: AuthService) { }
 
   public loout (): void {
+    this.authService.logout();
     this.router.navigate(['./auth']);
   }
 
