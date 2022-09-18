@@ -6,7 +6,13 @@ import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'app-add',
-  templateUrl: './add.component.html'
+  templateUrl: './add.component.html',
+  styles: [`
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+  `]
 })
 export class AddComponent implements OnInit {
   public hero: Hero = {
@@ -31,11 +37,16 @@ export class AddComponent implements OnInit {
   constructor(private heroesServices: HeroesService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params
+
+    const editView: boolean = this.router.url.includes('edit');
+
+    if(editView) {
+      this.activatedRoute.params
       .pipe(
         switchMap(({id}) => this.heroesServices.getHereosById(id)),
       )
-      .subscribe(hero => this.hero = hero)
+      .subscribe(hero => this.hero = hero);
+    }
 
   }
 
