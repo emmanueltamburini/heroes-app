@@ -69,4 +69,8 @@ export class AddComponent implements OnInit {
   public onDelete(): void {
     this.heroesServices.deleteHero(this.hero.id!).subscribe(() => this.router.navigate([`/heroes/allHeroes`]));
   }
+
+  public onImageChange(): void {
+    this.hero = {...this.hero};
+  }
 }

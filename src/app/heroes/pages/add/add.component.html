@@ -42,7 +42,7 @@
       <mat-label>
         Photo url
       </mat-label>
-      <input [(ngModel)]="hero.alt_image" matInput type="url" required>
+      <input [(ngModel)]="hero.alt_image" (input)="onImageChange()" matInput type="url" required>
     </mat-form-field>
 
     <br>
