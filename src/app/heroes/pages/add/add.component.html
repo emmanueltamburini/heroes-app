@@ -1,4 +1,4 @@
-<h1>New hero <small>{{hero.superhero}}</small></h1>
+<h1><span>{{hero.id ? 'Edit': 'New'}}</span> Hero <small>{{hero.superhero}}</small></h1>
 
 <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
   <div fxFlex="70" fxLayout="column">
@@ -42,7 +42,7 @@
       <mat-label>
         Photo url
       </mat-label>
-      <input [(ngModel)]="hero.alt_image" (input)="onImageChange()" matInput type="url" required>
+      <input [(ngModel)]="hero.alt_image" (input)="onImageChange()" matInput type="url" [disabled]="!this.hero.alt_image && !!this.hero.id" required>
     </mat-form-field>
 
     <br>
@@ -50,7 +50,7 @@
     <div fxLayout="row" fxLayoutGap="40px">
       <button fxFlex="50" mat-raised-button color="primary" (click)="onSubmit()">
         <mat-icon>edit</mat-icon>
-        Save
+        {{hero.id ? 'Update': 'Create'}}
       </button>
 
       <button *ngIf="hero.id" fxFlex="50" mat-raised-button color="warn" (click)="onDelete()">

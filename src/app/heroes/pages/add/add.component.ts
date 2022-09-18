@@ -60,7 +60,7 @@ export class AddComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    if (this.hero.superhero.trim().length === 0) {
+    if (this.hero.superhero.trim().length === 0 || this.hero.alt_image && this.hero.alt_image.trim().length === 0) {
       return;
     }
 
@@ -78,6 +78,8 @@ export class AddComponent implements OnInit {
   public onDelete(): void {
     const dialog: MatDialogRef<ConfirmComponent, boolean | undefined> = this.dialog.open(ConfirmComponent, {
       width: '350px',
+      enterAnimationDuration: '750ms',
+      exitAnimationDuration: '750ms',
       data: {...this.hero}
     });
 
