@@ -24,7 +24,7 @@ const routes: Routes = [
         component: AddComponent
       },
       {
-        path: 'seatch',
+        path: 'search',
         component: SearchComponent
       },
       {
