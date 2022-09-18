@@ -21,6 +21,10 @@ export class HeroesService {
     return this.http.put<Hero>(`${this._baseUrl}/heroes/${id}`, hero);
   }
 
+  public deleteHero(id:string): Observable<{}> {
+    return this.http.delete<{}>(`${this._baseUrl}/heroes/${id}`);
+  }
+
   public getHereos(): Observable<Hero[]> {
     return this.http.get<Hero[]>(`${this._baseUrl}/heroes`);
   }

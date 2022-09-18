@@ -47,10 +47,17 @@
 
     <br>
 
-    <button mat-raised-button color="primary" (click)="onSubmit()">
-      <mat-icon>edit</mat-icon>
-      Save
-    </button>
+    <div fxLayout="row" fxLayoutGap="40px">
+      <button fxFlex="50" mat-raised-button color="primary" (click)="onSubmit()">
+        <mat-icon>edit</mat-icon>
+        Save
+      </button>
+
+      <button *ngIf="hero.id" fxFlex="50" mat-raised-button color="warn" (click)="onDelete()">
+        <mat-icon>remove</mat-icon>
+        Delete
+      </button>
+    </div>
   </div>
   <div fxFlex="30">
     <img [src]="hero | image" alt="hero image">
