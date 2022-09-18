@@ -13,26 +13,26 @@
         <mat-label>
           Alter ego
         </mat-label>
-        <input [(ngModel)]="hero.alter_ego" matInput type="text" required>
+        <input [(ngModel)]="hero.alter_ego" matInput type="text">
       </mat-form-field>
     </div>
     <mat-form-field>
       <mat-label>
         First appearance
       </mat-label>
-      <input [(ngModel)]="hero.first_appearance" matInput type="text" required>
+      <input [(ngModel)]="hero.first_appearance" matInput type="text">
     </mat-form-field>
     <mat-form-field>
       <mat-label>
         Characters
       </mat-label>
-      <input [(ngModel)]="hero.characters" matInput type="text" required>
+      <input [(ngModel)]="hero.characters" matInput type="text">
     </mat-form-field>
     <mat-form-field>
       <mat-label>
         Characters
       </mat-label>
-      <mat-select [(ngModel)]="hero.publisher" required>
+      <mat-select [(ngModel)]="hero.publisher">
         <mat-option *ngFor="let publisher of publishers" [value]="publisher.id">
           {{publisher.description}}
         </mat-option>

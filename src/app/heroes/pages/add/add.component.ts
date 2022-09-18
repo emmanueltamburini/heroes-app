@@ -69,7 +69,7 @@ export class AddComponent implements OnInit {
         .subscribe(updatedHero => this._finish('Hero updated', updatedHero));
     } else {
       this.heroesServices.createHero(this.hero)
-      .subscribe(createdHero => this._finish('Hero updated', createdHero));
+      .subscribe(createdHero => this._finish('Hero created', createdHero));
     }
 
     this.router.navigate([`/heroes/allHeroes`]);
