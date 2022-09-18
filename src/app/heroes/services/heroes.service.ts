@@ -13,6 +13,14 @@ export class HeroesService {
 
   constructor(private http: HttpClient) {}
 
+  public createHero(hero: Hero): Observable<Hero> {
+    return this.http.post<Hero>(`${this._baseUrl}/heroes`, hero);
+  }
+
+  public updateHero(id:string, hero: Hero): Observable<Hero> {
+    return this.http.put<Hero>(`${this._baseUrl}/heroes/${id}`, hero);
+  }
+
   public getHereos(): Observable<Hero[]> {
     return this.http.get<Hero[]>(`${this._baseUrl}/heroes`);
   }

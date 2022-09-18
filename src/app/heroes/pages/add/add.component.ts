@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap } from 'rxjs';
 import { Hero, Publisher } from '../../interfaces/hero.interface';
+import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html'
 })
 export class AddComponent implements OnInit {
-
   public hero: Hero = {
     alter_ego: '',
     characters: '',
@@ -15,7 +17,7 @@ export class AddComponent implements OnInit {
     superhero: ''
   };
 
-  public publishers = [
+  public publishers: {id: string, description:string}[] = [
     {
       id: 'DC Comics',
       description: 'DC-Comics'
@@ -26,9 +28,30 @@ export class AddComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(private heroesServices: HeroesService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params
+      .pipe(
+        switchMap(({id}) => this.heroesServices.getHereosById(id)),
+      )
+      .subscribe(hero => this.hero = hero)
+
   }
 
+  public onSubmit(): void {
+    if (this.hero.superhero.trim().length === 0) {
+      return;
+    }
+
+    if(this.hero.id) {
+      this.heroesServices.updateHero(this.hero.id, this.hero)
+        .subscribe(updatedHero => this.hero = updatedHero);
+    } else {
+      this.heroesServices.createHero(this.hero)
+      .subscribe(createdHero => this.hero = createdHero);
+    }
+
+    this.router.navigate([`/heroes/allHeroes`]);
+  }
 }
