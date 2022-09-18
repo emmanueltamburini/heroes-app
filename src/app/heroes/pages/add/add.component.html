@@ -44,6 +44,12 @@
       </mat-label>
       <input [(ngModel)]="hero.alt_image" (input)="onImageChange()" matInput type="url" [disabled]="!this.hero.alt_image && !!this.hero.id" required>
     </mat-form-field>
+    <div *ngIf="!this.hero.alt_image && !!this.hero.id" fxLayout="row">
+      <mat-icon>info</mat-icon>
+      <div fxFlex="100">
+        You cannot edit this superhero image
+      </div>
+    </div>
 
     <br>
 

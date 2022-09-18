@@ -5,7 +5,12 @@ import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'app-search',
-  templateUrl: './search.component.html'
+  templateUrl: './search.component.html',
+  styles: [`
+    .centerImage {
+      justify-content: center;
+    }
+  `]
 })
 export class SearchComponent {
 
