@@ -4,7 +4,7 @@ npm install -g json-server
 
 ## HeroesApp README
 
-This app is an example about angular framework, Its functionality is to simulate a heroes app where you can watch, create, edit and delete a heroes from a server(locally sever created with [json-server](https://www.npmjs.com/package/json-server)), all this app has built with angular material.
+This app is an example about angular framework, Its functionality is to simulate a heroes app where you can watch, create, edit and delete heroes from a server (locally server created with [json-server](https://www.npmjs.com/package/json-server)), all this app has built with angular material.
 
 You can check final result [here](https://jade-peony-8d3e8c.netlify.app/). This app use a server in glitch, this platform use a serverless server, it means that the first time you enter, it is very possible that the information takes time to arrive while the server turns on (if you have a problem with url please notice to emmanueltamburini@gmail.com)
 
