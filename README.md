@@ -1,7 +1,5 @@
 # HeroesApp
 
-npm install -g json-server
-
 ## HeroesApp README
 
 This app is an example about angular framework, Its functionality is to simulate a heroes app where you can watch, create, edit and delete heroes from a server (locally server created with [json-server](https://www.npmjs.com/package/json-server)), all this app has built with angular material.
